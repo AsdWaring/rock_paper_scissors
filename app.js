@@ -3,7 +3,8 @@
 // compare user input against computer input
 // write result
 // loop five
-const user = button 
+var user = prompt ()
+var comp = 'rock'
 function game(user, comp) {
     if (user == comp)
         alert('you tie')
@@ -21,4 +22,4 @@ function game(user, comp) {
         alert('you win')
 }
 
-game('','paper')
+game(user, comp)
