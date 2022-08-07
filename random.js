@@ -1,5 +1,8 @@
-function computerselect(max) {
-  randomnumber = Math.floor(Math.random() * max);
+// setting constants
+const comp = computerselect;
+//random select
+function computerselect() {
+  randomnumber = Math.floor(Math.random() * 3);
   if (randomnumber == "0") {
     return "rock";
   } else if (randomnumber == "1") {
@@ -8,11 +11,11 @@ function computerselect(max) {
     return "scissors";
   }
 }
-// Need to figure out how to assign computerselect return as comp
-
-/*let user = prompt("Rock, Paper, Scissors?");
-
+//user prompt
+let user = prompt("Rock, Paper, Scissors?").toLowerCase();
+//game function
 function game(user, comp) {
+  comp = computerselect();
   if (user == comp) alert("you tie");
   else if (user == "rock" && comp == "paper") alert("you lose");
   else if (user == "rock" && comp == "scissors") alert("you win");
@@ -20,7 +23,7 @@ function game(user, comp) {
   else if (user == "paper" && comp == "scissors") alert("you lose");
   else if (user == "scissors" && comp == "rock") alert("you lose");
   else if (user == "scissors" && comp == "paper") alert("you win");
-}*/
+}
 
-console.log(computerselect(3));
-//game(user, comp);
+console.log(computerselect());
+game(user, comp);
