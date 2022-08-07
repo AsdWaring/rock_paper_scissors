@@ -1,11 +1,16 @@
-// create script for user input
-// create script for computer input
-// compare user input against computer input
-// write result
-// loop five
+function computerselect(max) {
+  randomnumber = Math.floor(Math.random() * max);
+  if (randomnumber == "0") {
+    return "rock";
+  } else if (randomnumber == "1") {
+    return "paper";
+  } else if (randomnumber == "2") {
+    return "scissors";
+  }
+}
+// Need to figure out how to assign computerselect return as comp
 
-let user = prompt("Rock, Paper, Scissors?");
-let comp = "paper";
+/*let user = prompt("Rock, Paper, Scissors?");
 
 function game(user, comp) {
   if (user == comp) alert("you tie");
@@ -15,6 +20,7 @@ function game(user, comp) {
   else if (user == "paper" && comp == "scissors") alert("you lose");
   else if (user == "scissors" && comp == "rock") alert("you lose");
   else if (user == "scissors" && comp == "paper") alert("you win");
-}
+}*/
 
-game(user, comp);
+console.log(computerselect(3));
+//game(user, comp);
