@@ -1,6 +1,8 @@
 // setting constants
+//
 const comp = computerselect;
 //random select
+//
 function computerselect() {
   randomnumber = Math.floor(Math.random() * 3);
   if (randomnumber == "0") {
@@ -12,8 +14,10 @@ function computerselect() {
   }
 }
 //user prompt
+//
 let user = prompt("Rock, Paper, Scissors?").toLowerCase();
 //game function
+//
 function game(user, comp) {
   comp = computerselect();
   if (user == comp) alert("you tie");
@@ -24,6 +28,7 @@ function game(user, comp) {
   else if (user == "scissors" && comp == "rock") alert("you lose");
   else if (user == "scissors" && comp == "paper") alert("you win");
 }
-
+//run game
+//
 console.log(computerselect());
 game(user, comp);
