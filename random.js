@@ -9,18 +9,21 @@ const paperbutton = document.querySelector("#paper");
 const scissorsbutton = document.querySelector("#scissors");
 // player selection
 rockbutton.addEventListener("click", () => {
-  console.log("user: rock");
+  console.log("User: rock");
   user = "rock";
+  game();
 });
 
 paperbutton.addEventListener("click", () => {
-  console.log("user: paper");
+  console.log("User: paper");
   user = "paper";
+  game();
 });
 
 scissorsbutton.addEventListener("click", () => {
-  console.log("user: scissors");
+  console.log("User: scissors");
   user = "scissors";
+  game();
 });
 //random select
 //
