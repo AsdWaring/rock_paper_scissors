@@ -1,5 +1,4 @@
-/* got the game to work at button push, need to create a counter
-that displays who score and have it out of five games*/
+/* Needs some css but it is functional*/
 
 // setting constants
 let playerscorenumber = 0;
@@ -67,7 +66,7 @@ function computerselect() {
 //
 
 //let user = prompt("Rock, Paper, Scissors?").toLowerCase();
-//game function - I simpliefied the code using ||
+//game function - I simpliefied the code using or||
 //
 function game() {
   computerselect();
