@@ -7,24 +7,46 @@ let computerscorenumber = 0;
 const rockbutton = document.querySelector("#rock");
 const paperbutton = document.querySelector("#paper");
 const scissorsbutton = document.querySelector("#scissors");
+const resetbutton = document.querySelector("#reset");
+//Reset button
+
+resetbutton.addEventListener("click", () => {
+  console.log("reset");
+  playerscorenumber = 0;
+  computerscorenumber = 0;
+  results = "Pick a Weapon";
+  rockbutton.disabled = false;
+  scissorsbutton.disabled = false;
+  paperbutton.disabled = false;
+  document.getElementById("results").innerHTML = results;
+  return;
+});
+
 // player selection
 rockbutton.addEventListener("click", () => {
   console.log("User: rock");
-  user = "rock";
+  user = "Rock";
   game();
 });
 
 paperbutton.addEventListener("click", () => {
   console.log("User: paper");
-  user = "paper";
+  user = "Paper";
   game();
 });
 
 scissorsbutton.addEventListener("click", () => {
   console.log("User: scissors");
-  user = "scissors";
+  user = "Scissors";
   game();
 });
+//disable buttons
+function disablebuttons() {
+  rockbutton.disabled = true;
+  scissorsbutton.disabled = true;
+  paperbutton.disabled = true;
+}
+
 //random select
 //
 
@@ -32,13 +54,13 @@ function computerselect() {
   randomnumber = Math.floor(Math.random() * 3);
   if (randomnumber == "0") {
     console.log("Computer: rock");
-    comp = "rock";
+    comp = "Rock";
   } else if (randomnumber == "1") {
     console.log("Computer: paper");
-    comp = "paper";
+    comp = "Paper";
   } else if (randomnumber == "2") {
     console.log("Computer: scissors");
-    comp = "scissors";
+    comp = "Scissors";
   }
 }
 //user prompt
@@ -51,9 +73,9 @@ function game() {
   computerselect();
 
   if (user == comp) {
-    alert("you tie");
+    //alert("you tie");
     results =
-      "You tie <br></br>" +
+      "You Tie! <br></br>" +
       user +
       " ties " +
       comp +
@@ -62,14 +84,14 @@ function game() {
       "<br></br>Computer Score: " +
       computerscorenumber;
   } else if (
-    (user == "rock" && comp == "paper") ||
-    (user == "paper" && comp == "scissors") ||
-    (user == "scissors" && comp == "rock")
+    (user == "Rock" && comp == "Paper") ||
+    (user == "Paper" && comp == "Scissors") ||
+    (user == "Scissors" && comp == "Rock")
   ) {
-    alert("you lose");
+    //alert("you lose");
     computerscorenumber += 1;
     results =
-      "You lose <br></br>" +
+      "You Lose! <br></br>" +
       comp +
       " beats " +
       user +
@@ -77,15 +99,19 @@ function game() {
       playerscorenumber +
       "<br></br>Computer Score: " +
       computerscorenumber;
+    if (computerscorenumber == 5) {
+      results = "Game Finished! The Computer has Defeated You!";
+      disablebuttons();
+    }
   } else if (
-    (user == "rock" && comp == "scissors") ||
-    (user == "paper" && comp == "rock") ||
-    (user == "scissors" && comp == "paper")
+    (user == "Rock" && comp == "Scissors") ||
+    (user == "Paper" && comp == "Rock") ||
+    (user == "Scissors" && comp == "Paper")
   ) {
-    alert("you win");
+    //alert("you win");
     playerscorenumber += 1;
     results =
-      "You win <br></br>" +
+      "You Win! <br></br>" +
       user +
       " beats " +
       comp +
@@ -93,9 +119,12 @@ function game() {
       playerscorenumber +
       "<br></br>Computer Score: " +
       computerscorenumber;
+    if (playerscorenumber == 5) {
+      results = "Game Finished! You have Defeated the Computer";
+      disablebuttons();
+    }
   }
+
   document.getElementById("results").innerHTML = results;
   return;
 }
-//run game
-//
